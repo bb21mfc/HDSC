@@ -338,7 +338,7 @@
               <MiscControls></MiscControls>
               <Define>HC32F46x,USE_DEVICE_DRIVER_LIB</Define>
               <Undefine></Undefine>
-              <IncludePath>..\drive\inc;..\common;..\FreeRTOS\portable\MemMang;..\FreeRTOS\portable\RVDS\ARM_CM4F;..\FreeRTOS\include;..\CMSIS;..\BSP\BSP_GPIO;..\BSP\BSP_UART;..\BSP\BSP_FIFO;..\APP\AT_CMD;..\BSP\BSP_PWR;..\APP\DEBUG</IncludePath>
+              <IncludePath>..\drive\inc;..\common;..\FreeRTOS\portable\MemMang;..\FreeRTOS\portable\RVDS\ARM_CM4F;..\FreeRTOS\include;..\CMSIS;..\BSP\BSP_GPIO;..\BSP\BSP_UART;..\BSP\BSP_FIFO;..\APP\AT_CMD;..\BSP\BSP_PWR;..\APP\DEBUG;..\BSP\BSP_IIC;..\BSP\BSP_ADC;..\BSP\BSP_RTC;..\BSP\BSP_SPI;..\APP\SENSOR;..\APP\CHARGE</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -417,6 +417,16 @@
               <FileType>1</FileType>
               <FilePath>..\APP\DEBUG\debug.c</FilePath>
             </File>
+            <File>
+              <FileName>sensor.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\APP\SENSOR\sensor.c</FilePath>
+            </File>
+            <File>
+              <FileName>charge.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\APP\CHARGE\charge.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -441,6 +451,26 @@
               <FileName>bsp_pwr.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\BSP\BSP_PWR\bsp_pwr.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_iic.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\BSP\BSP_IIC\bsp_iic.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_adc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\BSP\BSP_ADC\bsp_adc.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_spi.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\BSP\BSP_SPI\bsp_spi.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_rtc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\BSP\BSP_RTC\bsp_rtc.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -486,6 +516,31 @@
               <FileName>hc32f46x_usart.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\drive\src\hc32f46x_usart.c</FilePath>
+            </File>
+            <File>
+              <FileName>hc32f46x_adc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\drive\src\hc32f46x_adc.c</FilePath>
+            </File>
+            <File>
+              <FileName>hc32f46x_i2c.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\drive\src\hc32f46x_i2c.c</FilePath>
+            </File>
+            <File>
+              <FileName>hc32f46x_spi.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\drive\src\hc32f46x_spi.c</FilePath>
+            </File>
+            <File>
+              <FileName>hc32f46x_sram.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\drive\src\hc32f46x_sram.c</FilePath>
+            </File>
+            <File>
+              <FileName>hc32f46x_rtc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\drive\src\hc32f46x_rtc.c</FilePath>
             </File>
           </Files>
         </Group>

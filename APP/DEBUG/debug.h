@@ -41,11 +41,17 @@
 
 #define WDT_LOG_ID		(0x0001 << 0)
 #define AT_LOG_ID		(0x0001 << 1)
+#define PWC_LOG_ID		(0x0001 << 2)
+#define ADC_LOG_ID		(0x0001 << 3)
+#define RTC_LOG_ID		(0x0001 << 4)
 
 #define MAX_NAME_LEN	10
 
 #define WDT_LOG_NAME	"WDT"
 #define AT_LOG_NAME		"AT"
+#define PWC_LOG_NAME	"PWC"
+#define ADC_LOG_NAME	"ADC"
+#define RTC_LOG_NAME	"RTC"
 
 typedef struct
 {
@@ -62,6 +68,24 @@ typedef struct
 
 #ifdef AT_LOG_ID
 #define	LOGAT(...)	Write_Log_From_ID(AT_LOG_ID, __VA_ARGS__)
+#else
+#define	LOGWDT(...)
+#endif
+
+#ifdef PWC_LOG_ID
+#define	LOGPWC(...)	Write_Log_From_ID(PWC_LOG_ID, __VA_ARGS__)
+#else
+#define	LOGWDT(...)
+#endif
+
+#ifdef ADC_LOG_ID
+#define	LOGADC(...)	Write_Log_From_ID(ADC_LOG_ID, __VA_ARGS__)
+#else
+#define	LOGWDT(...)
+#endif
+
+#ifdef RTC_LOG_ID
+#define	LOGRTC(...)	Write_Log_From_ID(RTC_LOG_ID, __VA_ARGS__)
 #else
 #define	LOGWDT(...)
 #endif

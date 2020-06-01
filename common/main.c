@@ -8,6 +8,8 @@
 #include "bsp_gpio.h"
 #include "bsp_uart.h"
 #include "bsp_pwr.h"
+#include "bsp_adc.h"
+#include "bsp_rtc.h"
 
 #include "at_cmd.h"
 #include "debug.h"
@@ -49,10 +51,12 @@ void vTask2Code( void * pvParameters );
 int32_t main(void)
 {
 	/* Initialize Clock */
-    ClkInit();
+    SystemClkInit();
 	
 	LED_Gpio_Init();
 	USART3_Init();
+	ADC_Initialize();
+	RTC_Initialize();
 	
 	xTaskCreate( vTask1Code, "My_Task1", 512, NULL, 6, &My_Task1_Handle);
 
@@ -82,10 +86,21 @@ void vTask1Code( void * pvParameters )
 
 void vTask2Code( void * pvParameters )
 {
+	uint16_t i = 0;
+	
 	while(1)
 	{
-		LED1_TOGGLE();
+		LED_RED_TOGGLE();
 		LED3_TOGGLE();
+		
+		Write_Uart_Debug("i = %d\r\n",i);
+		i++;
+		if(i == 10)
+		{
+			i = 0;
+			Set_Wakeup_Time(10);
+			Enter_Stop_Mode();
+		}
 		
 		vTaskDelay(1000);
 	}

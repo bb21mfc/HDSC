@@ -44,12 +44,15 @@
 /***************************************************************************
 * Variables                           全局变量
 ***************************************************************************/
-uint16_t LOG_SWITCH = ALL_LOG_CLOSE;
+uint16_t LOG_SWITCH = PWC_LOG_ID | RTC_LOG_ID;
 
 MODULELOG Module_List[] = 
 {
 	{WDT_LOG_ID,WDT_LOG_NAME},
 	{AT_LOG_ID,AT_LOG_NAME},
+	{PWC_LOG_ID,PWC_LOG_NAME},
+	{ADC_LOG_ID,ADC_LOG_NAME},
+	{RTC_LOG_ID,RTC_LOG_NAME},
 };
 /***************************************************************************
 * Static Variables                   本地全局变量

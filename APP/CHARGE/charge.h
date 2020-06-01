@@ -1,12 +1,12 @@
 /*****************************************************************************
 * Copyright(C) 2017,GosuncnWelink
 *
-*  Module Name ：电源管理相关驱动
-*  File Name   ：bsp_pwr.c
-*  Description ：提供电源管理相关驱动
+*  Module Name ：充电芯片驱动
+*  File Name   ：sensor.c
+*  Description ：充电芯片驱动
 *  Author      ：maheng
 *  Version     ：
-*  Data        ：2020-05-27
+*  Data        ：2020-06-01
 *  Others      ：
 *  Revision Details1：
 *  Modify Data：
@@ -16,14 +16,14 @@
 *  Revision Details2：
 *****************************************************************************/
 
-#ifndef	BSP_PWR_H
-#define	BSP_PWR_H
+#ifndef	CHARGE_H
+#define	CHARGE_H
 
 /***************************************************************************
 * Include Files                       文件引用
 ***************************************************************************/
 #include "hc32_ddl.h"
-#include "bsp_uart.h"
+#include "bsp_iic.h"
 
 #include "debug.h"
 
@@ -35,20 +35,28 @@
 /***************************************************************************
 * Macros                               宏定义
 ***************************************************************************/
+#define CHARGE_ADDRESS					(0x6B)
+
+#define I2C2_CHARGE_SCL_PORT            (PortA)
+#define I2C2_CHARGE_SCL_PIN             (Pin06)
+#define I2C2_CHARGE_SDA_PORT            (PortB)
+#define I2C2_CHARGE_SDA_PIN             (Pin00)
+
+#define I2C2_CHARGE_CH                  (M4_I2C2)
+
+#define I2C2_CHARGE_BAUDRATE            (400000ul)
 
 /***************************************************************************
 * Types                             全局类型定义
 ***************************************************************************/
 
-
 /***************************************************************************
 * Function Declare                  全局函数声明
 ***************************************************************************/
-void SystemClkInit(void);
 
-void Enter_Stop_Mode(void);
+void IIC2_Charge_Init(void);
+void Charge_WriteData(uint8_t addr,uint8_t *pTxData, uint32_t u32Size);
+void Charge_ReceiveData(uint8_t addr,uint8_t *pRxData, uint32_t u32Size);
 
-void Set_Wakeup_Time(uint16_t Wakeup_Time);
-
-#endif  /* BSP_PWR_H */
+#endif  /* CHARGE_H */
 
