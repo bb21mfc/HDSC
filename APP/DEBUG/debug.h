@@ -1,5 +1,5 @@
 /*****************************************************************************
-* Copyright(C) 2017,GosuncnWelink
+* 1
 *
 *  Module Name £ºDebug µ÷ÊÔÏµÍ³
 *  File Name   £ºdebug.c

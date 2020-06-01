@@ -1,5 +1,5 @@
 /*****************************************************************************
-* Copyright(C) 2017,GosuncnWelink
+* 1
 *
 *  Module Name £ºGPIOÇý¶¯
 *  File Name   £ºbsp_gpio.c
